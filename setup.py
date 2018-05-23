@@ -16,7 +16,7 @@ setup(
     version='0.1.3',
     description='Official TagMe API wrapper for Python',
     long_description=LONG_DESCRIPTION,
-    url='https://github.com/marcocor/tagme-python',
+    url='https://github.com/tc64/tagme-python',
     author='Marco Cornolti',
     author_email='cornolti@di.unipi.it',
     license='Apache',
