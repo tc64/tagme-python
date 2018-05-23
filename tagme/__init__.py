@@ -185,8 +185,8 @@ def title_to_uri(entity_title, lang=DEFAULT_LANG):
     return WIKIPEDIA_URI_BASE.format(lang, normalize_title(entity_title))
 
 
-def annotate(text, gcube_token=None, lang=DEFAULT_LANG, api=DEFAULT_TAG_API,
-             long_text=DEFAULT_LONG_TEXT):
+def annotate(text, gcube_token=None, lang=DEFAULT_LANG, api=DEFAULT_TAG_API, long_text=DEFAULT_LONG_TEXT, tweet=False,
+             include_abstract=False, include_categories=False, include_all_spots=False):
     '''
     Annotate a text, linking it to Wikipedia entities.
     :param text: the text to annotate.
@@ -197,7 +197,13 @@ def annotate(text, gcube_token=None, lang=DEFAULT_LANG, api=DEFAULT_TAG_API,
     '''
     payload = [("text", text.encode("utf-8")),
                ("long_text", long_text),
-               ("lang", lang)]
+               ("lang", lang),
+               ("tweet", tweet),
+               ("include_abstract", include_abstract),
+               ("include_categories", include_categories),
+               ("include_all_spots", include_all_spots)
+               ]
+
     json_response = _issue_request(api, payload, gcube_token)
     return AnnotateResponse(json_response) if json_response else None
 

@@ -8,7 +8,8 @@ SAMPLE_TEXT = "Obama visited uk"
 def main():
     # Annotate a text.
     print("Annotating text: ", SAMPLE_TEXT)
-    resp = tagme.annotate(SAMPLE_TEXT)
+    #resp = tagme.annotate(SAMPLE_TEXT)
+    resp = tagme.annotate(SAMPLE_TEXT, include_categories=True)
     print(resp)
     for ann in resp.annotations:
         print(ann)
